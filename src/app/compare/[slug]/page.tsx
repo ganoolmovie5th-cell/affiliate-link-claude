@@ -2,7 +2,6 @@
 
 import { use } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { MOCK_PRODUCTS } from "@/lib/mockData";
 import { getCheapestPrice, formatPrice } from "@/lib/products";
 import PriceComparisonTable from "@/components/product/PriceComparisonTable";
@@ -47,13 +46,13 @@ export default function ProductDetailPage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Product image */}
         <div className="relative aspect-square bg-white rounded-2xl border border-gray-200 overflow-hidden">
-          <Image
+          <img
             src={product.imageUrl}
             alt={product.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = `https://placehold.co/600x600/f3f4f6/9ca3af?text=${encodeURIComponent(product.brand)}`;
+            }}
           />
           {product.featured && (
             <span className="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-full">
