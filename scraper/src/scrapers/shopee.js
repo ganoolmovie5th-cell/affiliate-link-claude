@@ -13,7 +13,7 @@ async function scrapeShopee(product) {
   try {
     console.log(`[Shopee] Scraping: ${product.name}`);
 
-    const apiUrl = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${encodeURIComponent(url)}&render=true&country_code=id`;
+    const apiUrl = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${encodeURIComponent(url)}&render=true&country_code=id&premium=true&keep_headers=true`;
     const response = await axios.get(apiUrl, { timeout: 70000 });
     const $ = cheerio.load(response.data);
 
