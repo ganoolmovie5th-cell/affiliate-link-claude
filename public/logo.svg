@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="#2563eb"/>
+  
+  <!-- Price tag shape -->
+  <path d="M55 65 L55 115 L100 155 L145 115 L145 65 Z" fill="white" opacity="0.15"/>
+  
+  <!-- Letter H stylized -->
+  <rect x="52" y="58" width="16" height="84" rx="8" fill="white"/>
+  <rect x="92" y="58" width="16" height="84" rx="8" fill="white"/>
+  <rect x="52" y="92" width="56" height="16" rx="8" fill="white"/>
+  
+  <!-- Price comparison arrows -->
+  <path d="M120 72 L148 72 L136 60 M148 72 L136 84" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <path d="M148 128 L120 128 L132 116 M120 128 L132 140" stroke="#fbbf24" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

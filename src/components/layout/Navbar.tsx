@@ -22,13 +22,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">H</span>
-            </div>
-            <span className="font-bold text-lg text-gray-900 hidden sm:block">
-              Harga<span className="text-blue-600">Bandingin</span>
-            </span>
+          <Link href="/" className="flex items-center shrink-0">
+            <img
+              src="/logo-light.svg"
+              alt="HargaBandingin"
+              className="h-10 w-auto hidden sm:block"
+            />
+            <img
+              src="/favicon.svg"
+              alt="HargaBandingin"
+              className="h-9 w-9 sm:hidden"
+            />
           </Link>
 
           {/* Search bar */}

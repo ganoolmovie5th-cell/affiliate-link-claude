@@ -8,12 +8,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">H</span>
-              </div>
-              <span className="font-bold text-lg text-white">
-                Harga<span className="text-blue-400">Bandingin</span>
-              </span>
+              <img src="/logo-dark.svg" alt="HargaBandingin" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
               Bandingkan harga dari official store Shopee, Tokopedia, dan TikTok Shop. 
