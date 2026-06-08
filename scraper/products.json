@@ -1,7 +1,20 @@
 [
   {
-    "id": "samsung-galaxy-a55-256gb",
-    "name": "Samsung Galaxy A55 5G 256GB",
+    "id": "samsung-galaxy-s26-ultra-256gb",
+    "name": "Samsung Galaxy S26 Ultra 12/256GB",
+    "brand": "Samsung",
+    "category": "smartphone",
+    "imageUrl": "https://images.samsung.com/id/smartphones/galaxy-s26-ultra/images/galaxy-s26-ultra-highlights-kv.jpg",
+    "description": "Smartphone flagship Samsung terbaru dengan AI Privacy Display, kamera 200MP, dan performa maksimal.",
+    "featured": true,
+    "tags": ["samsung", "flagship", "android", "5g", "ai"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/samsung-official-store/samsung-galaxy-s26-ultra-12-256gb-hp-ai-privacy-display-1734668094692165613-1734668096396429293",
+      "shopee": "https://shopee.co.id/Samsung-Official-Store",
+      "tiktok": "https://www.tiktok.com/shop/id"
+    }
+  }
+]
     "brand": "Samsung",
     "category": "smartphone",
     "imageUrl": "https://images.samsung.com/id/smartphones/galaxy-a55/images/galaxy-a55-5g-highlights-color-awesome-iceblue.jpg",
