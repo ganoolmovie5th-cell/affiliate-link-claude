@@ -14,7 +14,7 @@ async function scrapeTokopedia(product) {
     console.log(`🔍 Scraping Tokopedia: ${product.name}`);
 
     // Pakai ScraperAPI dengan render=true supaya JS dijalankan
-    const apiUrl = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${encodeURIComponent(url)}&render=true&country_code=id`;
+    const apiUrl = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${encodeURIComponent(url)}&country_code=id`;
 
     const response = await axios.get(apiUrl, { timeout: 70000 });
     const $ = cheerio.load(response.data);
