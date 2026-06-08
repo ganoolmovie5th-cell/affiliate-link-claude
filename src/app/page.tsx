@@ -1,22 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ProductCard from "@/components/product/ProductCard";
+import { getProducts } from "@/lib/products";
 import { MOCK_PRODUCTS } from "@/lib/mockData";
 import { CATEGORIES } from "@/types";
+import type { Product } from "@/types";
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
+  const [products, setProducts] = useState<Product[]>(MOCK_PRODUCTS.filter(p => p.featured));
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    getProducts().then((data) => {
+      if (data.length > 0) {
+        setProducts(data.filter(p => p.featured).slice(0, 8));
+      }
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) router.push(`/search?q=${encodeURIComponent(query.trim())}`);
   };
-
-  const featuredProducts = MOCK_PRODUCTS.filter((p) => p.featured);
 
   return (
     <div>
@@ -24,12 +35,10 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center max-w-3xl mx-auto">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
               Harga diupdate setiap 12 jam
             </div>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
               Bandingkan Harga{" "}
               <span className="text-yellow-300">Official Store</span>
@@ -38,8 +47,6 @@ export default function HomePage() {
             <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-xl mx-auto">
               Shopee, Tokopedia, dan TikTok Shop dalam satu halaman. Klik langsung ke harga termurah!
             </p>
-
-            {/* Search bar */}
             <form onSubmit={handleSearch} className="relative max-w-xl mx-auto mb-8">
               <input
                 type="text"
@@ -55,11 +62,9 @@ export default function HomePage() {
                 Cari Harga
               </button>
             </form>
-
-            {/* Popular searches */}
             <div className="flex flex-wrap items-center justify-center gap-2">
               <span className="text-sm text-blue-200">Populer:</span>
-              {["Samsung Galaxy", "AirPods", "Wardah", "Xiaomi", "Nike"].map((term) => (
+              {["Samsung", "Xiaomi", "Wardah", "Realme", "Somethinc"].map((term) => (
                 <button
                   key={term}
                   onClick={() => router.push(`/search?q=${encodeURIComponent(term)}`)}
@@ -71,12 +76,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Wave */}
         <div className="h-10 bg-gray-50" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }}></div>
       </section>
 
-      {/* Marketplace logos strip */}
+      {/* Marketplace strip */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-center gap-8 md:gap-16">
@@ -134,17 +137,36 @@ export default function HomePage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900">Produk Terpopuler</h2>
-            <p className="text-sm text-gray-500 mt-0.5">Bandingkan harga dari official store resmi</p>
+            <p className="text-sm text-gray-500 mt-0.5">
+              {loading ? "Memuat data..." : `${products.length} produk tersedia`}
+            </p>
           </div>
           <Link href="/compare" className="text-sm text-blue-600 hover:underline font-medium">
             Lihat semua →
           </Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-200 overflow-hidden animate-pulse">
+                <div className="aspect-square bg-gray-200"></div>
+                <div className="p-4 space-y-2">
+                  <div className="h-3 bg-gray-200 rounded w-1/3"></div>
+                  <div className="h-4 bg-gray-200 rounded w-full"></div>
+                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                  <div className="h-5 bg-gray-200 rounded w-1/2 mt-3"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* How it works */}

@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ProductCard from "@/components/product/ProductCard";
+import { getProducts } from "@/lib/products";
 import { MOCK_PRODUCTS } from "@/lib/mockData";
 import { CATEGORIES } from "@/types";
+import type { Product } from "@/types";
 
 export default function ComparePage() {
+  const [allProducts, setAllProducts] = useState<Product[]>(MOCK_PRODUCTS);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("featured");
 
-  const filtered = MOCK_PRODUCTS.filter((p) =>
+  useEffect(() => {
+    getProducts().then((data) => {
+      if (data.length > 0) setAllProducts(data);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, []);
+
+  const filtered = allProducts.filter((p) =>
     selectedCategory === "all" ? true : p.category === selectedCategory
   ).sort((a, b) => {
     if (sortBy === "name") return a.name.localeCompare(b.name);
@@ -39,7 +50,7 @@ export default function ComparePage() {
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Bandingkan Harga Semua Produk</h1>
         <p className="text-gray-500 mt-1">
-          {filtered.length} produk dari official store Shopee, Tokopedia & TikTok Shop
+          {loading ? "Memuat data..." : `${filtered.length} produk dari official store Shopee, Tokopedia & TikTok Shop`}
         </p>
       </div>
 
