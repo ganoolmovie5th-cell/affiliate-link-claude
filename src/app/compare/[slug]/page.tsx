@@ -6,6 +6,7 @@ import { MOCK_PRODUCTS } from "@/lib/mockData";
 import { getCheapestPrice, formatPrice } from "@/lib/products";
 import PriceComparisonTable from "@/components/product/PriceComparisonTable";
 import ProductCard from "@/components/product/ProductCard";
+import ProductImage from "@/components/ui/ProductImage";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -46,13 +47,11 @@ export default function ProductDetailPage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Product image */}
         <div className="relative aspect-square bg-white rounded-2xl border border-gray-200 overflow-hidden">
-          <img
+          <ProductImage
             src={product.imageUrl}
             alt={product.name}
+            fallbackText={product.brand}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = `https://placehold.co/600x600/f3f4f6/9ca3af?text=${encodeURIComponent(product.brand)}`;
-            }}
           />
           {product.featured && (
             <span className="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-full">

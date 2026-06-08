@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { getCheapestPrice, formatPrice } from "@/lib/products";
-import { formatNumber } from "@/lib/utils";
 import type { Product } from "@/types";
 import MarketplaceBadge from "@/components/ui/MarketplaceBadge";
+import ProductImage from "@/components/ui/ProductImage";
 
 interface Props {
   product: Product;
@@ -23,13 +23,11 @@ export default function ProductCard({ product }: Props) {
     >
       {/* Image */}
       <div className="relative aspect-square bg-gray-100 overflow-hidden">
-        <img
+        <ProductImage
           src={product.imageUrl}
           alt={product.name}
+          fallbackText={product.brand}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={(e) => {
-            e.currentTarget.src = `https://placehold.co/400x400/f3f4f6/9ca3af?text=${encodeURIComponent(product.brand)}`;
-          }}
         />
         {product.featured && (
           <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">

@@ -4,42 +4,14 @@
     "name": "Samsung Galaxy S26 Ultra 12/256GB",
     "brand": "Samsung",
     "category": "smartphone",
-    "imageUrl": "https://images.samsung.com/id/smartphones/galaxy-s26-ultra/images/galaxy-s26-ultra-highlights-kv.jpg",
+    "imageUrl": "https://images.tokopedia.net/img/cache/700/aphluv/1997/1/1/205412b3d5544e30bc6f5cab85f079a3~.jpeg",
     "description": "Smartphone flagship Samsung terbaru dengan AI Privacy Display, kamera 200MP, dan performa maksimal.",
     "featured": true,
     "tags": ["samsung", "flagship", "android", "5g", "ai"],
     "urls": {
       "tokopedia": "https://www.tokopedia.com/samsung-official-store/samsung-galaxy-s26-ultra-12-256gb-hp-ai-privacy-display-1734668094692165613-1734668096396429293",
-      "shopee": "https://shopee.co.id/Samsung-Official-Store",
-      "tiktok": "https://www.tiktok.com/shop/id"
-    }
-  }
-]
-    "brand": "Samsung",
-    "category": "smartphone",
-    "imageUrl": "https://images.samsung.com/id/smartphones/galaxy-a55/images/galaxy-a55-5g-highlights-color-awesome-iceblue.jpg",
-    "description": "Smartphone mid-range Samsung dengan chipset Exynos 1480, layar 6.6 inch Super AMOLED 120Hz, kamera 50MP OIS.",
-    "featured": true,
-    "tags": ["samsung", "android", "5g", "midranger"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/samsung/samsung-galaxy-a55-5g-8-256gb",
-      "shopee": "https://shopee.co.id/Samsung-Official-Store/Samsung-Galaxy-A55-5G",
-      "tiktok": "https://www.tiktok.com/shop/id/product/samsung-galaxy-a55"
-    }
-  },
-  {
-    "id": "xiaomi-redmi-note-13-256gb",
-    "name": "Xiaomi Redmi Note 13 Pro 256GB",
-    "brand": "Xiaomi",
-    "category": "smartphone",
-    "imageUrl": "https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-note-13-pro/specs-header.png",
-    "description": "Mid-range terbaik dengan kamera 200MP, layar AMOLED 120Hz, baterai 5100mAh fast charge 67W.",
-    "featured": true,
-    "tags": ["xiaomi", "redmi", "android", "midranger"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/xiaomi/xiaomi-redmi-note-13-pro-5g-8-256gb",
-      "shopee": "https://shopee.co.id/Xiaomi-Official-Store/Redmi-Note-13-Pro",
-      "tiktok": "https://www.tiktok.com/shop/id/product/xiaomi-redmi-note-13-pro"
+      "shopee": "https://shopee.co.id/Samsung-Galaxy-S26-Ultra-12-512GB-Black-Hp-AI-Privacy-Display-i.52635036.49406140069",
+      "tiktok": ""
     }
   },
   {
@@ -47,29 +19,14 @@
     "name": "Wardah Lightening Serum 20ml",
     "brand": "Wardah",
     "category": "kecantikan",
-    "imageUrl": "https://www.wardahbeauty.com/media/catalog/product/w/a/wardah-lightening-serum.jpg",
-    "description": "Serum pencerah wajah dengan Niacinamide dan Vitamin C. Cocok untuk semua jenis kulit.",
-    "featured": false,
-    "tags": ["wardah", "skincare", "serum", "lokal"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/wardah/wardah-lightening-serum-20ml",
-      "shopee": "https://shopee.co.id/Wardah-Official-Store/Wardah-Lightening-Serum",
-      "tiktok": "https://www.tiktok.com/shop/id/product/wardah-lightening-serum"
-    }
-  },
-  {
-    "id": "realme-buds-air-5-pro",
-    "name": "Realme Buds Air 5 Pro",
-    "brand": "Realme",
-    "category": "elektronik",
-    "imageUrl": "https://image.realme.com/content/dam/realme/id/buds-air5-pro/img/kv.png",
-    "description": "TWS premium dengan Active Noise Cancellation 50dB, driver 11mm, baterai total 38 jam.",
+    "imageUrl": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
+    "description": "Serum pencerah wajah dengan Niacinamide dan Vitamin C untuk kulit cerah bercahaya.",
     "featured": true,
-    "tags": ["realme", "tws", "earphone", "anc"],
+    "tags": ["wardah", "skincare", "serum", "niacinamide", "lokal"],
     "urls": {
-      "tokopedia": "https://www.tokopedia.com/realme/realme-buds-air-5-pro",
-      "shopee": "https://shopee.co.id/Realme-Official-Store/Realme-Buds-Air-5-Pro",
-      "tiktok": "https://www.tiktok.com/shop/id/product/realme-buds-air-5-pro"
+      "tokopedia": "https://www.tokopedia.com/wardah/wardah-lightening-series-serum-20-ml",
+      "shopee": "",
+      "tiktok": ""
     }
   },
   {
@@ -77,14 +34,89 @@
     "name": "Somethinc Niacinamide 10% + Zinc 1% Serum 20ml",
     "brand": "Somethinc",
     "category": "kecantikan",
-    "imageUrl": "https://somethinc.com/cdn/shop/products/niacinamide.jpg",
-    "description": "Serum niacinamide untuk menyamarkan pori, mencerahkan wajah, dan mengontrol minyak.",
-    "featured": false,
+    "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop",
+    "description": "Serum niacinamide untuk pori-pori, mencerahkan wajah, dan mengontrol minyak berlebih.",
+    "featured": true,
     "tags": ["somethinc", "skincare", "serum", "niacinamide", "lokal"],
     "urls": {
-      "tokopedia": "https://www.tokopedia.com/somethinc/somethinc-niacinamide-10-zinc-1-serum",
-      "shopee": "https://shopee.co.id/Somethinc-Official/Niacinamide-10-Zinc-Serum",
-      "tiktok": "https://www.tiktok.com/shop/id/product/somethinc-niacinamide-serum"
+      "tokopedia": "https://www.tokopedia.com/somethinc/somethinc-niacinamide-10-zinc-1-20ml",
+      "shopee": "",
+      "tiktok": ""
+    }
+  },
+  {
+    "id": "emina-bright-stuff-moisturizer",
+    "name": "Emina Bright Stuff Moisturizing Cream 20ml",
+    "brand": "Emina",
+    "category": "kecantikan",
+    "imageUrl": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop",
+    "description": "Pelembab wajah untuk kulit cerah dan lembap sepanjang hari. Cocok untuk remaja.",
+    "featured": false,
+    "tags": ["emina", "skincare", "moisturizer", "lokal", "remaja"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/eminacosmetics/emina-bright-stuff-moisturizing-cream-20-ml",
+      "shopee": "",
+      "tiktok": ""
+    }
+  },
+  {
+    "id": "the-originote-ceramide-moisturizer",
+    "name": "The Originote Ceramide Moisturizer 50ml",
+    "brand": "The Originote",
+    "category": "kecantikan",
+    "imageUrl": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop",
+    "description": "Pelembab dengan kandungan ceramide untuk memperkuat skin barrier dan menjaga kelembapan kulit.",
+    "featured": false,
+    "tags": ["originote", "skincare", "moisturizer", "ceramide", "lokal"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/theoriginote/the-originote-ceramide-moisturizer-50ml",
+      "shopee": "",
+      "tiktok": ""
+    }
+  },
+  {
+    "id": "skintific-5x-ceramide-serum",
+    "name": "Skintific 5X Ceramide Barrier Repair Serum 20ml",
+    "brand": "Skintific",
+    "category": "kecantikan",
+    "imageUrl": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop",
+    "description": "Serum ceramide untuk memperbaiki skin barrier rusak, cocok untuk kulit sensitif.",
+    "featured": true,
+    "tags": ["skintific", "skincare", "serum", "ceramide", "barrier"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/skintific/skintific-5x-ceramide-barrier-repair-serum-20ml",
+      "shopee": "",
+      "tiktok": ""
+    }
+  },
+  {
+    "id": "you-makeup-two-way-cake",
+    "name": "Y.O.U UV Protection Two Way Cake SPF33",
+    "brand": "Y.O.U",
+    "category": "kecantikan",
+    "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop",
+    "description": "Bedak padat dengan perlindungan UV SPF33 untuk tampilan natural dan tahan lama.",
+    "featured": false,
+    "tags": ["you", "makeup", "bedak", "spf", "lokal"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/youbeautyid/y-o-u-uv-protection-two-way-cake-spf33",
+      "shopee": "",
+      "tiktok": ""
+    }
+  },
+  {
+    "id": "azarine-hydrasoothe-sunscreen-spf45",
+    "name": "Azarine Hydrasoothe Sunscreen Gel SPF45 PA++++",
+    "brand": "Azarine",
+    "category": "kecantikan",
+    "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop",
+    "description": "Sunscreen gel ringan tidak lengket dengan SPF45 PA++++ untuk perlindungan maksimal dari sinar UV.",
+    "featured": true,
+    "tags": ["azarine", "skincare", "sunscreen", "spf45", "lokal"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/azarinecosmetic/azarine-hydrasoothe-sunscreen-gel-spf-45-pa-40ml",
+      "shopee": "",
+      "tiktok": ""
     }
   }
 ]
