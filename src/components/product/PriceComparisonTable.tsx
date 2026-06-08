@@ -11,7 +11,8 @@ interface Props {
   product: Product;
 }
 
-const MARKETPLACE_ORDER: Marketplace[] = ["shopee", "tokopedia", "tiktok"];
+// Marketplace display order (for reference)
+// const MARKETPLACE_ORDER: Marketplace[] = ["shopee", "tokopedia", "tiktok"];
 
 export default function PriceComparisonTable({ product }: Props) {
   const cheapest = getCheapestPrice(product);
