@@ -50,15 +50,21 @@ async function saveProduct(productData) {
 }
 
 // Update hanya harga (prices array) dari produk yang sudah ada
-async function updateProductPrices(productId, prices) {
+async function updateProductPrices(productId, prices, imageUrl = null) {
   const db = getDb();
   const ref = db.collection('products').doc(productId);
 
-  await ref.update({
+  const updateData = {
     prices,
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-  });
+  };
 
+  // Update imageUrl kalau ada hasil scraping baru
+  if (imageUrl) {
+    updateData.imageUrl = imageUrl;
+  }
+
+  await ref.update(updateData);
   console.log(`💰 Prices updated: ${productId}`);
 }
 

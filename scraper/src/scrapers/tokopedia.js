@@ -75,10 +75,37 @@ async function scrapeTokopedia(product) {
     const soldText = $('[data-testid="pdp_comp-sold-count"], [class*="sold"]').first().text().trim() || null;
     const outOfStock = $('[data-testid="pdp_comp-empty-stock"]').length > 0;
 
+    // Scrape imageUrl dari produk
+    let imageUrl = null;
+    const imageSelectors = [
+      '[data-testid="PDPImageMain"] img',
+      '[data-testid="pdp_comp-product-image"] img',
+      '.css-1c345mg img',
+      '[class*="ProductMedia"] img',
+      '[class*="product-image"] img',
+      'img[class*="main"]',
+    ];
+    for (const sel of imageSelectors) {
+      const el = $(sel).first();
+      if (el.length) {
+        const src = el.attr('src') || el.attr('data-src');
+        if (src && src.startsWith('http') && !src.includes('placeholder')) {
+          // Ambil versi gambar terbesar (ganti ukuran kecil ke besar)
+          imageUrl = src.replace(/\/\d+\/\d+\//, '/500/500/').replace('100-square_webp', '500-square');
+          break;
+        }
+      }
+    }
+
+    // Fallback: cari og:image dari meta tag
+    if (!imageUrl) {
+      const ogImage = $('meta[property="og:image"]').attr('content');
+      if (ogImage) imageUrl = ogImage;
+    }
+
     const price = parsePrice(priceText);
 
     if (!price) {
-      // Log HTML untuk debug
       console.log(`❌ Gagal parse harga Tokopedia: ${product.name}`);
       console.log(`   HTML snippet: ${response.data.substring(0, 300)}`);
       return null;
@@ -95,9 +122,10 @@ async function scrapeTokopedia(product) {
       rating: ratingText ? parseFloat(ratingText) : undefined,
       sold: parseSold(soldText) || undefined,
       lastUpdated: new Date().toISOString(),
+      imageUrl: imageUrl || undefined,
     };
 
-    console.log(`✅ Tokopedia ${product.name}: Rp${price.toLocaleString('id-ID')}`);
+    console.log(`✅ Tokopedia ${product.name}: Rp${price.toLocaleString('id-ID')}${imageUrl ? ' 🖼️' : ''}`);
     return result;
 
   } catch (err) {

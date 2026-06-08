@@ -61,6 +61,9 @@ async function scrapeProduct(product) {
   // Simpan ke Firebase
   const exists = await productExists(product.id);
 
+  // Ambil imageUrl dari hasil scraping (prioritas Tokopedia)
+  const scrapedImageUrl = results.find(r => r.imageUrl)?.imageUrl || null;
+
   if (!exists) {
     // Produk baru → simpan lengkap
     await saveProduct({
@@ -69,7 +72,7 @@ async function scrapeProduct(product) {
       slug: product.id,
       brand: product.brand,
       category: product.category,
-      imageUrl: product.imageUrl,
+      imageUrl: scrapedImageUrl || product.imageUrl,
       description: product.description,
       featured: product.featured || false,
       tags: product.tags || [],
@@ -78,8 +81,13 @@ async function scrapeProduct(product) {
     });
     console.log(`🆕 Produk baru disimpan ke Firebase`);
   } else {
-    // Produk sudah ada → update harga saja
-    await updateProductPrices(product.id, results);
+    // Produk sudah ada → update harga + imageUrl kalau ada yang baru
+    const updateData = { prices: results };
+    if (scrapedImageUrl) {
+      updateData.imageUrl = scrapedImageUrl;
+      console.log(`🖼️  ImageUrl diupdate dari scraping`);
+    }
+    await updateProductPrices(product.id, results, scrapedImageUrl);
     console.log(`🔄 Harga diupdate di Firebase`);
   }
 }
