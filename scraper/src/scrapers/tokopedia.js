@@ -76,31 +76,25 @@ async function scrapeTokopedia(product) {
     const outOfStock = $('[data-testid="pdp_comp-empty-stock"]').length > 0;
 
     // Scrape imageUrl dari produk
+    // Prioritas: images.tokopedia.net (tidak expire) > og:image (ada expiry)
     let imageUrl = null;
-    const imageSelectors = [
-      '[data-testid="PDPImageMain"] img',
-      '[data-testid="pdp_comp-product-image"] img',
-      '.css-1c345mg img',
-      '[class*="ProductMedia"] img',
-      '[class*="product-image"] img',
-      'img[class*="main"]',
-    ];
-    for (const sel of imageSelectors) {
-      const el = $(sel).first();
-      if (el.length) {
-        const src = el.attr('src') || el.attr('data-src');
-        if (src && src.startsWith('http') && !src.includes('placeholder')) {
-          // Ambil versi gambar terbesar (ganti ukuran kecil ke besar)
-          imageUrl = src.replace(/\/\d+\/\d+\//, '/500/500/').replace('100-square_webp', '500-square');
-          break;
-        }
-      }
-    }
 
-    // Fallback: cari og:image dari meta tag
+    // Cari img dari domain images.tokopedia.net (URL permanen)
+    $('img').each((_, el) => {
+      const src = $(el).attr('src') || $(el).attr('data-src') || '';
+      if (src.includes('images.tokopedia.net') && src.includes('.jpeg')) {
+        // Ambil versi 700px
+        imageUrl = src.replace(/cache\/\d+\//, 'cache/700/').split('~')[0] + '~.jpeg';
+        return false; // break
+      }
+    });
+
+    // Fallback: og:image (meski ada expiry, masih bisa dipakai sementara)
     if (!imageUrl) {
       const ogImage = $('meta[property="og:image"]').attr('content');
-      if (ogImage) imageUrl = ogImage;
+      if (ogImage && ogImage.startsWith('http')) {
+        imageUrl = ogImage;
+      }
     }
 
     const price = parsePrice(priceText);
