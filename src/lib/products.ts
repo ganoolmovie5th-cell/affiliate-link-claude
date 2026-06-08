@@ -13,16 +13,23 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { MOCK_PRODUCTS } from "./mockData";
 import type { Product } from "@/types";
 
 const COLLECTION = "products";
 
+const isFirebaseReady = () => db !== null;
+
 export async function getProducts(category?: string): Promise<Product[]> {
+  if (!isFirebaseReady()) {
+    if (category) return MOCK_PRODUCTS.filter((p) => p.category === category);
+    return MOCK_PRODUCTS;
+  }
   try {
-    let q = query(collection(db, COLLECTION), orderBy("createdAt", "desc"));
+    let q = query(collection(db!, COLLECTION), orderBy("createdAt", "desc"));
     if (category) {
       q = query(
-        collection(db, COLLECTION),
+        collection(db!, COLLECTION),
         where("category", "==", category),
         orderBy("createdAt", "desc")
       );
@@ -30,14 +37,17 @@ export async function getProducts(category?: string): Promise<Product[]> {
     const snapshot = await getDocs(q);
     return snapshot.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
   } catch {
-    return [];
+    return MOCK_PRODUCTS;
   }
 }
 
 export async function getFeaturedProducts(count = 8): Promise<Product[]> {
+  if (!isFirebaseReady()) {
+    return MOCK_PRODUCTS.filter((p) => p.featured).slice(0, count);
+  }
   try {
     const q = query(
-      collection(db, COLLECTION),
+      collection(db!, COLLECTION),
       where("featured", "==", true),
       orderBy("createdAt", "desc"),
       limit(count)
@@ -45,25 +55,37 @@ export async function getFeaturedProducts(count = 8): Promise<Product[]> {
     const snapshot = await getDocs(q);
     return snapshot.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
   } catch {
-    return [];
+    return MOCK_PRODUCTS.filter((p) => p.featured).slice(0, count);
   }
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
+  if (!isFirebaseReady()) {
+    return MOCK_PRODUCTS.find((p) => p.slug === slug) || null;
+  }
   try {
-    const q = query(collection(db, COLLECTION), where("slug", "==", slug));
+    const q = query(collection(db!, COLLECTION), where("slug", "==", slug));
     const snapshot = await getDocs(q);
     if (snapshot.empty) return null;
     const d = snapshot.docs[0];
     return { id: d.id, ...d.data() } as Product;
   } catch {
-    return null;
+    return MOCK_PRODUCTS.find((p) => p.slug === slug) || null;
   }
 }
 
 export async function searchProducts(term: string): Promise<Product[]> {
+  if (!isFirebaseReady()) {
+    const lower = term.toLowerCase();
+    return MOCK_PRODUCTS.filter(
+      (p) =>
+        p.name.toLowerCase().includes(lower) ||
+        p.brand.toLowerCase().includes(lower) ||
+        p.tags?.some((t) => t.toLowerCase().includes(lower))
+    );
+  }
   try {
-    const snapshot = await getDocs(collection(db, COLLECTION));
+    const snapshot = await getDocs(collection(db!, COLLECTION));
     const all = snapshot.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
     const lower = term.toLowerCase();
     return all.filter(
@@ -78,7 +100,8 @@ export async function searchProducts(term: string): Promise<Product[]> {
 }
 
 export async function addProduct(data: Omit<Product, "id">): Promise<string> {
-  const ref = await addDoc(collection(db, COLLECTION), {
+  if (!isFirebaseReady()) throw new Error("Firebase not configured");
+  const ref = await addDoc(collection(db!, COLLECTION), {
     ...data,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -87,14 +110,16 @@ export async function addProduct(data: Omit<Product, "id">): Promise<string> {
 }
 
 export async function updateProduct(id: string, data: Partial<Product>): Promise<void> {
-  await updateDoc(doc(db, COLLECTION, id), {
+  if (!isFirebaseReady()) throw new Error("Firebase not configured");
+  await updateDoc(doc(db!, COLLECTION, id), {
     ...data,
     updatedAt: serverTimestamp(),
   });
 }
 
 export async function deleteProduct(id: string): Promise<void> {
-  await deleteDoc(doc(db, COLLECTION, id));
+  if (!isFirebaseReady()) throw new Error("Firebase not configured");
+  await deleteDoc(doc(db!, COLLECTION, id));
 }
 
 export function getCheapestPrice(product: Product) {
