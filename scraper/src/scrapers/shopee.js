@@ -1,7 +1,47 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const FirecrawlApp = require('@mendable/firecrawl-js').default;
 
-const SCRAPER_API_KEY = process.env.SCRAPER_API_KEY;
+const firecrawl = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY });
+
+// Schema ekstraksi harga Shopee
+const EXTRACT_SCHEMA = {
+  type: 'object',
+  properties: {
+    price: {
+      type: 'number',
+      description: 'Harga jual saat ini dalam Rupiah (angka saja, tanpa Rp atau titik). Contoh: 89000',
+    },
+    originalPrice: {
+      type: 'number',
+      description: 'Harga asli sebelum diskon dalam Rupiah (angka saja). Null jika tidak ada diskon.',
+    },
+    discount: {
+      type: 'number',
+      description: 'Persentase diskon (angka saja). Contoh: 30 untuk diskon 30%. Null jika tidak ada.',
+    },
+    rating: {
+      type: 'number',
+      description: 'Rating produk dari skala 0-5. Contoh: 4.9. Null jika tidak ada.',
+    },
+    sold: {
+      type: 'number',
+      description: 'Total produk terjual (angka saja). Null jika tidak ada.',
+    },
+    inStock: {
+      type: 'boolean',
+      description: 'true jika produk masih tersedia/ada stok, false jika habis/kosong.',
+    },
+    imageUrl: {
+      type: 'string',
+      description: 'URL gambar utama produk dari CDN Shopee. Null jika tidak ditemukan.',
+    },
+    productName: {
+      type: 'string',
+      description: 'Nama lengkap produk sesuai yang tertulis di halaman.',
+    },
+  },
+  required: ['price', 'inStock'],
+};
+
 
 async function scrapeShopee(product) {
   const url = product.urls?.shopee;
@@ -10,88 +50,57 @@ async function scrapeShopee(product) {
     return null;
   }
 
+  console.log(`[Shopee] Scraping: ${product.name}`);
+
   try {
-    console.log(`[Shopee] Scraping: ${product.name}`);
+    const result = await firecrawl.scrapeUrl(url, {
+      formats: ['extract'],
+      extract: {
+        schema: EXTRACT_SCHEMA,
+        systemPrompt:
+          'Kamu adalah asisten ekstraksi data produk e-commerce Indonesia. ' +
+          'Ekstrak informasi harga dari halaman produk Shopee dengan akurat. ' +
+          'Harga dalam format Rupiah (Rp), ekstrak sebagai angka bulat saja. ' +
+          'Shopee sering menampilkan harga flash sale atau voucher, ambil harga terendah yang tampil.',
+      },
+      location: { country: 'ID', languages: ['id'] },
+      timeout: 60000,
+    });
 
-    const apiUrl = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${encodeURIComponent(url)}&render=true&country_code=id&premium=true&keep_headers=true`;
-    const response = await axios.get(apiUrl, { timeout: 70000 });
-    const $ = cheerio.load(response.data);
-
-    const parsePrice = (text) => {
-      if (!text) return null;
-      const cleaned = text.replace(/[^0-9]/g, '');
-      return cleaned ? parseInt(cleaned, 10) : null;
-    };
-
-    const parseDiscount = (text) => {
-      if (!text) return null;
-      const match = text.match(/(\d+)/);
-      return match ? parseInt(match[1], 10) : null;
-    };
-
-    const parseSold = (text) => {
-      if (!text) return null;
-      const lower = text.toLowerCase();
-      const numMatch = lower.match(/[\d.]+/);
-      if (!numMatch) return null;
-      const num = parseFloat(numMatch[0]);
-      if (lower.includes('rb') || lower.includes('k')) return Math.floor(num * 1000);
-      if (lower.includes('jt') || lower.includes('m')) return Math.floor(num * 1000000);
-      return Math.floor(num);
-    };
-
-    let priceText = null;
-    const priceSelectors = [
-      '._3n5NQx',
-      '[class*="priceSale"]',
-      '[class*="price--current"]',
-      '[class*="price"]',
-    ];
-    for (const sel of priceSelectors) {
-      const el = $(sel).first();
-      if (el.length && el.text().includes('Rp')) {
-        priceText = el.text().trim();
-        break;
-      }
+    if (!result?.extract) {
+      console.log(`[Shopee] Tidak ada data extract: ${product.name}`);
+      return null;
     }
 
-    if (!priceText) {
-      $('span, div').each((_, el) => {
-        const text = $(el).text().trim();
-        if (text.match(/^Rp[\d.,]+$/) || text.match(/^Rp\s[\d.,]+$/)) {
-          priceText = text;
-          return false;
-        }
-      });
-    }
+    const data = result.extract;
 
-    const originalPriceText = $('[class*="priceOriginal"], [class*="price--before"]').first().text().trim() || null;
-    const discountText = $('[class*="discount"], [class*="promo"]').first().text().trim() || null;
-    const ratingText = $('[class*="rating"] span').first().text().trim() || null;
-    const soldText = $('[class*="sold"]').first().text().trim() || null;
-    const outOfStock = $('[class*="out-of-stock"]').length > 0;
-
-    const price = parsePrice(priceText);
-    if (!price) {
+    if (!data.price || data.price <= 0) {
       console.log(`[Shopee] Gagal parse harga: ${product.name}`);
       return null;
     }
 
-    console.log(`[Shopee] OK ${product.name}: Rp${price.toLocaleString('id-ID')}`);
-    return {
+    const output = {
       marketplace: 'shopee',
-      price,
-      originalPrice: parsePrice(originalPriceText) || undefined,
-      discount: parseDiscount(discountText) || undefined,
+      price: Math.round(data.price),
+      originalPrice: data.originalPrice ? Math.round(data.originalPrice) : undefined,
+      discount: data.discount ?? undefined,
       affiliateUrl: url,
       productUrl: url,
-      inStock: !outOfStock,
-      rating: ratingText ? parseFloat(ratingText) : undefined,
-      sold: parseSold(soldText) || undefined,
+      inStock: data.inStock ?? true,
+      rating: data.rating ?? undefined,
+      sold: data.sold ?? undefined,
+      imageUrl: data.imageUrl ?? undefined,
       lastUpdated: new Date().toISOString(),
     };
+
+    console.log(
+      `[Shopee] ✅ ${product.name}: Rp${output.price.toLocaleString('id-ID')}` +
+      `${output.discount ? ` (-${output.discount}%)` : ''}`
+    );
+    return output;
+
   } catch (err) {
-    console.error(`[Shopee] Error ${product.name}:`, err.message);
+    console.error(`[Shopee] ❌ Error ${product.name}:`, err.message);
     return null;
   }
 }

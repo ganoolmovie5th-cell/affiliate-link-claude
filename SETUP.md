@@ -73,6 +73,69 @@ npm run dev
 
 ---
 
+## 🤖 Setup Scraper (Firecrawl)
+
+Scraper menggunakan [Firecrawl](https://www.firecrawl.dev) untuk mengambil data harga dari Tokopedia, Shopee, dan TikTok Shop secara otomatis dengan LLM extraction.
+
+### 1. Dapatkan Firecrawl API Key
+Daftar/login di https://www.firecrawl.dev/dashboard lalu copy API key kamu.
+
+### 2. Setup Environment Variables Scraper
+```bash
+cd scraper
+cp .env.example .env
+```
+
+Isi `.env` dengan nilai yang sesuai:
+```env
+# Firecrawl
+FIRECRAWL_API_KEY=fc-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Firebase Admin SDK
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your-project-id.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+# Interval scraping dalam jam (default: 6)
+SCRAPE_INTERVAL_HOURS=6
+```
+
+### 3. Install Dependencies Scraper
+```bash
+cd scraper
+npm install
+```
+
+### 4. Jalankan Scraper
+```bash
+# Jalankan sekali (dev/test)
+npm run dev
+
+# Jalankan dengan PM2 (production, auto-restart + cron setiap 6 jam)
+npm install -g pm2
+pm2 start ecosystem.config.js
+pm2 logs hargabandingin-scraper
+```
+
+### 5. Tambahkan Produk
+Edit `scraper/products.json` untuk menambah/mengubah produk yang di-scrape:
+```json
+{
+  "id": "nama-produk-slug",
+  "name": "Nama Produk Lengkap",
+  "brand": "Brand",
+  "category": "kategori",
+  "urls": {
+    "tokopedia": "https://www.tokopedia.com/...",
+    "shopee": "https://shopee.co.id/...",
+    "tiktok": "https://www.tiktok.com/..."
+  }
+}
+```
+> URL boleh dikosongkan (`""`) jika produk tidak tersedia di marketplace tersebut.
+
+---
+
 ## 💰 Affiliate Program Registration
 
 | Marketplace | Link Daftar |
