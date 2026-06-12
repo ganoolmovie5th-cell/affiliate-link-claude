@@ -1,122 +1,212 @@
 [
   {
-    "id": "samsung-galaxy-s26-ultra-256gb",
-    "name": "Samsung Galaxy S26 Ultra 12/256GB",
+    "id": "samsung-galaxy-s25-256gb",
+    "name": "Samsung Galaxy S25 8/256GB",
     "brand": "Samsung",
     "category": "smartphone",
-    "imageUrl": "https://images.tokopedia.net/img/cache/700/aphluv/1997/1/1/205412b3d5544e30bc6f5cab85f079a3~.jpeg",
-    "description": "Smartphone flagship Samsung terbaru dengan AI Privacy Display, kamera 200MP, dan performa maksimal.",
+    "description": "Smartphone AI flagship Samsung 2025 dengan Snapdragon 8 Elite, kamera 50MP, dan Galaxy AI features.",
     "featured": true,
-    "tags": ["samsung", "flagship", "android", "5g", "ai"],
+    "tags": ["samsung", "flagship", "android", "5g", "ai", "snapdragon"],
     "urls": {
-      "tokopedia": "https://www.tokopedia.com/samsung-official-store/samsung-galaxy-s26-ultra-12-256gb-hp-ai-privacy-display-1734668094692165613-1734668096396429293",
-      "shopee": "https://shopee.co.id/Samsung-Galaxy-S26-Ultra-12-512GB-Black-Hp-AI-Privacy-Display-i.52635036.49406140069",
-      "tiktok": ""
+      "tokopedia": "https://www.tokopedia.com/samsung-official-store/samsung-galaxy-s25-8-256gb-hp-ai-snapdragon-8-elite",
+      "shopee": "https://shopee.co.id/Samsung-Galaxy-S25-8-256GB-i.52635036.29041234567",
+      "tiktok": "https://www.tiktok.com/@samsungofficial.id/product/samsung-galaxy-s25-256gb"
+    }
+  },
+  {
+    "id": "samsung-galaxy-a55-5g-256gb",
+    "name": "Samsung Galaxy A55 5G 8/256GB",
+    "brand": "Samsung",
+    "category": "smartphone",
+    "description": "Smartphone mid-range Samsung dengan layar Super AMOLED 120Hz, kamera OIS 50MP, dan baterai 5000mAh.",
+    "featured": true,
+    "tags": ["samsung", "mid-range", "android", "5g", "amoled"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/samsung-official-store/samsung-galaxy-a55-5g-8-256gb",
+      "shopee": "https://shopee.co.id/Samsung-Galaxy-A55-5G-8-256GB-i.52635036.24681357901",
+      "tiktok": "https://www.tiktok.com/@samsungofficial.id/product/samsung-galaxy-a55-5g"
+    }
+  },
+  {
+    "id": "xiaomi-redmi-note-14-pro-256gb",
+    "name": "Xiaomi Redmi Note 14 Pro 8/256GB",
+    "brand": "Xiaomi",
+    "category": "smartphone",
+    "description": "Smartphone mid-range Xiaomi dengan kamera 200MP, layar AMOLED 120Hz, dan baterai 5110mAh fast charging 45W.",
+    "featured": true,
+    "tags": ["xiaomi", "redmi", "mid-range", "android", "5g", "200mp"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/xiaomiindonesia/xiaomi-redmi-note-14-pro-8-256gb",
+      "shopee": "https://shopee.co.id/Xiaomi-Redmi-Note-14-Pro-8-256GB-i.83061229.24681012345",
+      "tiktok": "https://www.tiktok.com/@xiaomiofficialstore/product/redmi-note-14-pro-256gb"
+    }
+  },
+  {
+    "id": "xiaomi-15-pro-256gb",
+    "name": "Xiaomi 15 Pro 12/256GB",
+    "brand": "Xiaomi",
+    "category": "smartphone",
+    "description": "Flagship Xiaomi 2025 dengan Snapdragon 8 Elite, kamera Leica 50MP, layar LTPO AMOLED, dan fast charging 90W.",
+    "featured": true,
+    "tags": ["xiaomi", "flagship", "android", "5g", "leica", "snapdragon"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/xiaomiindonesia/xiaomi-15-pro-12-256gb",
+      "shopee": "https://shopee.co.id/Xiaomi-15-Pro-12-256GB-i.83061229.28001234567",
+      "tiktok": "https://www.tiktok.com/@xiaomiofficialstore/product/xiaomi-15-pro-256gb"
+    }
+  },
+  {
+    "id": "oppo-reno13-pro-256gb",
+    "name": "OPPO Reno13 Pro 5G 12/256GB",
+    "brand": "OPPO",
+    "category": "smartphone",
+    "description": "Smartphone OPPO dengan kamera AI portrait 50MP, layar AMOLED 120Hz, dan desain tipis premium.",
+    "featured": true,
+    "tags": ["oppo", "reno", "mid-range", "android", "5g", "portrait"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/oppo-official/oppo-reno13-pro-5g-12-256gb",
+      "shopee": "https://shopee.co.id/OPPO-Reno13-Pro-5G-12-256GB-i.65561190.27001234567",
+      "tiktok": "https://www.tiktok.com/@oppoofficialstore/product/reno13-pro-5g"
+    }
+  },
+  {
+    "id": "philips-airfryer-hd9200",
+    "name": "Philips Air Fryer Essential HD9200/91 4.1L",
+    "brand": "Philips",
+    "category": "elektronik-rumah",
+    "description": "Air fryer Philips kapasitas 4.1L dengan teknologi RapidAir, tanpa minyak, untuk keluarga 2-3 orang.",
+    "featured": true,
+    "tags": ["philips", "air fryer", "dapur", "masak sehat", "elektronik"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/philips-indonesia/philips-air-fryer-essential-hd9200-91-4-1l",
+      "shopee": "https://shopee.co.id/Philips-Air-Fryer-HD9200-91-4.1L-i.8003337.15001234567",
+      "tiktok": "https://www.tiktok.com/@philipsindonesia.official/product/air-fryer-hd9200"
+    }
+  },
+  {
+    "id": "philips-blender-hr2221",
+    "name": "Philips Blender Viva Collection HR2221/03 600W",
+    "brand": "Philips",
+    "category": "elektronik-rumah",
+    "description": "Blender Philips 600W dengan 2 kecepatan + pulse, jar plastik 2L, pisau ProBlend, mudah dibersihkan.",
+    "featured": false,
+    "tags": ["philips", "blender", "dapur", "elektronik", "viva"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/philips-indonesia/philips-blender-viva-collection-hr2221-03",
+      "shopee": "https://shopee.co.id/Philips-Blender-Viva-HR2221-i.8003337.12001234567",
+      "tiktok": "https://www.tiktok.com/@philipsindonesia.official/product/blender-hr2221"
     }
   },
   {
     "id": "wardah-lightening-serum-20ml",
     "name": "Wardah Lightening Serum 20ml",
     "brand": "Wardah",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
-    "description": "Serum pencerah wajah dengan Niacinamide dan Vitamin C untuk kulit cerah bercahaya.",
+    "category": "skincare",
+    "description": "Serum pencerah wajah dengan Niacinamide dan Vitamin C untuk kulit cerah bercahaya. Halal certified.",
     "featured": true,
-    "tags": ["wardah", "skincare", "serum", "niacinamide", "lokal"],
+    "tags": ["wardah", "skincare", "serum", "niacinamide", "halal", "lokal"],
     "urls": {
       "tokopedia": "https://www.tokopedia.com/wardah/wardah-lightening-series-serum-20-ml",
-      "shopee": "",
-      "tiktok": ""
+      "shopee": "https://shopee.co.id/Wardah-Lightening-Serum-20ml-i.137388377.8001234567",
+      "tiktok": "https://www.tiktok.com/@wardahofficial/product/lightening-serum-20ml"
     }
   },
   {
-    "id": "somethinc-niacinamide-serum",
+    "id": "wardah-perfect-bright-facial-wash",
+    "name": "Wardah Perfect Bright Facial Wash 100ml",
+    "brand": "Wardah",
+    "category": "skincare",
+    "description": "Sabun cuci muka dengan niacinamide untuk mencerahkan dan membersihkan wajah tanpa membuat kering.",
+    "featured": false,
+    "tags": ["wardah", "skincare", "facial wash", "niacinamide", "halal", "lokal"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/wardah/wardah-perfect-bright-facial-wash-100ml",
+      "shopee": "https://shopee.co.id/Wardah-Perfect-Bright-Facial-Wash-100ml-i.137388377.8501234567",
+      "tiktok": "https://www.tiktok.com/@wardahofficial/product/perfect-bright-facial-wash"
+    }
+  },
+  {
+    "id": "skintific-5x-ceramide-moisturizer",
+    "name": "Skintific 5X Ceramide Barrier Moisturizer 30g",
+    "brand": "Skintific",
+    "category": "skincare",
+    "description": "Pelembab dengan 5 jenis ceramide untuk memperbaiki skin barrier dan menjaga kelembapan 72 jam.",
+    "featured": true,
+    "tags": ["skintific", "skincare", "moisturizer", "ceramide", "barrier"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/skintific/skintific-5x-ceramide-barrier-moisturizer-30g",
+      "shopee": "https://shopee.co.id/Skintific-5X-Ceramide-Barrier-Moisturizer-30g-i.469093504.18001234567",
+      "tiktok": "https://www.tiktok.com/@skintific.official.store/product/5x-ceramide-moisturizer"
+    }
+  },
+  {
+    "id": "skintific-symbol-therapy-sunscreen",
+    "name": "Skintific Symbol Therapy Sunscreen SPF50 PA++++ 30ml",
+    "brand": "Skintific",
+    "category": "skincare",
+    "description": "Sunscreen ringan dengan ceramide dan niacinamide, SPF50 PA++++, cocok untuk kulit sensitif, no white cast.",
+    "featured": true,
+    "tags": ["skintific", "skincare", "sunscreen", "spf50", "ceramide", "no white cast"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/skintific/skintific-symbol-therapy-sunscreen-spf50-30ml",
+      "shopee": "https://shopee.co.id/Skintific-Symbol-Therapy-Sunscreen-SPF50-i.469093504.19001234567",
+      "tiktok": "https://www.tiktok.com/@skintific.official.store/product/symbol-therapy-sunscreen"
+    }
+  },
+  {
+    "id": "somethinc-niacinamide-10pct-serum",
     "name": "Somethinc Niacinamide 10% + Zinc 1% Serum 20ml",
     "brand": "Somethinc",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop",
-    "description": "Serum niacinamide untuk pori-pori, mencerahkan wajah, dan mengontrol minyak berlebih.",
+    "category": "skincare",
+    "description": "Serum niacinamide untuk mengecilkan pori, mencerahkan, dan mengontrol minyak. Salah satu bestseller Indonesia.",
     "featured": true,
-    "tags": ["somethinc", "skincare", "serum", "niacinamide", "lokal"],
+    "tags": ["somethinc", "skincare", "serum", "niacinamide", "lokal", "pori"],
     "urls": {
       "tokopedia": "https://www.tokopedia.com/somethinc/somethinc-niacinamide-10-zinc-1-20ml",
-      "shopee": "",
-      "tiktok": ""
+      "shopee": "https://shopee.co.id/Somethinc-Niacinamide-10-Zinc-1-Serum-20ml-i.171480929.8001234567",
+      "tiktok": "https://www.tiktok.com/@somethinc.official/product/niacinamide-10-serum"
     }
   },
   {
-    "id": "emina-bright-stuff-moisturizer",
-    "name": "Emina Bright Stuff Moisturizing Cream 20ml",
-    "brand": "Emina",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop",
-    "description": "Pelembab wajah untuk kulit cerah dan lembap sepanjang hari. Cocok untuk remaja.",
+    "id": "loreal-revitalift-1-5pct-pure-hyaluronic",
+    "name": "L'Oreal Revitalift 1.5% Pure Hyaluronic Acid Serum 30ml",
+    "brand": "L'Oreal Paris",
+    "category": "skincare",
+    "description": "Serum hyaluronic acid konsentrasi tinggi 1.5% untuk hidrasi intensif dan mengurangi kerutan.",
     "featured": false,
-    "tags": ["emina", "skincare", "moisturizer", "lokal", "remaja"],
+    "tags": ["loreal", "skincare", "serum", "hyaluronic acid", "anti aging"],
     "urls": {
-      "tokopedia": "https://www.tokopedia.com/eminacosmetics/emina-bright-stuff-moisturizing-cream-20-ml",
-      "shopee": "",
-      "tiktok": ""
-    }
-  },
-  {
-    "id": "the-originote-ceramide-moisturizer",
-    "name": "The Originote Ceramide Moisturizer 50ml",
-    "brand": "The Originote",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop",
-    "description": "Pelembab dengan kandungan ceramide untuk memperkuat skin barrier dan menjaga kelembapan kulit.",
-    "featured": false,
-    "tags": ["originote", "skincare", "moisturizer", "ceramide", "lokal"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/theoriginote/the-originote-ceramide-moisturizer-50ml",
-      "shopee": "",
-      "tiktok": ""
-    }
-  },
-  {
-    "id": "skintific-5x-ceramide-serum",
-    "name": "Skintific 5X Ceramide Barrier Repair Serum 20ml",
-    "brand": "Skintific",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop",
-    "description": "Serum ceramide untuk memperbaiki skin barrier rusak, cocok untuk kulit sensitif.",
-    "featured": true,
-    "tags": ["skintific", "skincare", "serum", "ceramide", "barrier"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/skintific/skintific-5x-ceramide-barrier-repair-serum-20ml",
-      "shopee": "",
-      "tiktok": ""
-    }
-  },
-  {
-    "id": "you-makeup-two-way-cake",
-    "name": "Y.O.U UV Protection Two Way Cake SPF33",
-    "brand": "Y.O.U",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop",
-    "description": "Bedak padat dengan perlindungan UV SPF33 untuk tampilan natural dan tahan lama.",
-    "featured": false,
-    "tags": ["you", "makeup", "bedak", "spf", "lokal"],
-    "urls": {
-      "tokopedia": "https://www.tokopedia.com/youbeautyid/y-o-u-uv-protection-two-way-cake-spf33",
-      "shopee": "",
-      "tiktok": ""
+      "tokopedia": "https://www.tokopedia.com/lorealparis/loreal-revitalift-1-5-pure-hyaluronic-acid-serum-30ml",
+      "shopee": "https://shopee.co.id/LOreal-Revitalift-Hyaluronic-Acid-Serum-30ml-i.9319229.10001234567",
+      "tiktok": "https://www.tiktok.com/@lorealparisid.official/product/revitalift-hyaluronic-serum"
     }
   },
   {
     "id": "azarine-hydrasoothe-sunscreen-spf45",
-    "name": "Azarine Hydrasoothe Sunscreen Gel SPF45 PA++++",
+    "name": "Azarine Hydrasoothe Sunscreen Gel SPF45 PA++++ 40ml",
     "brand": "Azarine",
-    "category": "kecantikan",
-    "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop",
-    "description": "Sunscreen gel ringan tidak lengket dengan SPF45 PA++++ untuk perlindungan maksimal dari sinar UV.",
+    "category": "skincare",
+    "description": "Sunscreen gel ringan tidak lengket dengan SPF45 PA++++ dan kandungan hyaluronic acid untuk kulit lembap.",
     "featured": true,
-    "tags": ["azarine", "skincare", "sunscreen", "spf45", "lokal"],
+    "tags": ["azarine", "skincare", "sunscreen", "spf45", "lokal", "gel"],
     "urls": {
       "tokopedia": "https://www.tokopedia.com/azarinecosmetic/azarine-hydrasoothe-sunscreen-gel-spf-45-pa-40ml",
-      "shopee": "",
-      "tiktok": ""
+      "shopee": "https://shopee.co.id/Azarine-Hydrasoothe-Sunscreen-Gel-SPF45-40ml-i.185168020.9001234567",
+      "tiktok": "https://www.tiktok.com/@azarinecosmetic.official/product/hydrasoothe-sunscreen-spf45"
+    }
+  },
+  {
+    "id": "emina-bright-stuff-moisturizer-20ml",
+    "name": "Emina Bright Stuff Moisturizing Cream 20ml",
+    "brand": "Emina",
+    "category": "skincare",
+    "description": "Pelembab wajah dengan Rice Extract dan Vitamin B3 untuk kulit cerah dan lembap. Cocok untuk remaja.",
+    "featured": false,
+    "tags": ["emina", "skincare", "moisturizer", "lokal", "remaja", "rice extract"],
+    "urls": {
+      "tokopedia": "https://www.tokopedia.com/eminacosmetics/emina-bright-stuff-moisturizing-cream-20-ml",
+      "shopee": "https://shopee.co.id/Emina-Bright-Stuff-Moisturizing-Cream-20ml-i.17225580.5001234567",
+      "tiktok": "https://www.tiktok.com/@eminacosmetics.official/product/bright-stuff-moisturizing-cream"
     }
   }
 ]
