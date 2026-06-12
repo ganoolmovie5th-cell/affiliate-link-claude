@@ -25,6 +25,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# scraper env (berisi credentials Firebase & Firecrawl)
+scraper/.env
+
 # vercel
 .vercel
 
